@@ -7,5 +7,4 @@ import javax.inject.Singleton
 @Singleton
 interface LoginEntityRepository {
     fun findAddressById(id: UUID): Login?
-
 }

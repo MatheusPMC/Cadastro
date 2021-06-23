@@ -25,6 +25,25 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
         }
     }
 
+    override fun uploadedRegister(loginEntity: LoginEntity) {
+        val preparedInsert: PreparedStatement = session.prepare(
+            "UPDATE Login SET name = ?, age = ?, cpf = ?, email = ?, phone = ? WHERE id = ? IF EXISTS"
+        )
+        val update : BoundStatement = preparedInsert.bind(
+            loginEntity.name,
+            loginEntity.age,
+            loginEntity.cpf,
+            loginEntity.email,
+            loginEntity.phone,
+            loginEntity.id,
+        )
+        val rs = session.execute(update)
+        if (!rs.wasApplied()){
+            throw LoginAlreadyExistsException("Esse Cliente não existe!")
+        }
+
+    }
+
     override fun addAddress(loginEntity: LoginEntity) {
         val preparedInsert: PreparedStatement = session.prepare(
             "INSERT INTO Login(id, street, number, city, state, postalCode) VALUES (?,?,?,?,?,?)"
@@ -35,6 +54,26 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
 
         if (!result.wasApplied()) {
             throw LoginAlreadyExistsException("Cliente já registrado!")
+        }
+    }
+
+    override fun uploadedAddress(loginEntity: LoginEntity) {
+        val preparedInsert: PreparedStatement = session.prepare(
+            "UPDATE Login SET street = ?, number = ?, city = ?, state = ?, postalCode =? WHERE id = ? IF EXISTS"
+        )
+        val update : BoundStatement = preparedInsert.bind(
+
+            loginEntity.street,
+            loginEntity.number,
+            loginEntity.city,
+            loginEntity.state,
+            loginEntity.postalCode,
+            loginEntity.id,
+        )
+        val rs = session.execute(update)
+
+        if (!rs.wasApplied()){
+            throw LoginAlreadyExistsException("Esse Endereço não existe!")
         }
     }
 }

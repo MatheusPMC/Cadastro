@@ -71,6 +71,7 @@ class RegisterEntityRepositoryImpl(private val cqlSession: CqlSession, private v
                 registerEntity.cpf
             )
         val rs = cqlSession.execute(update)
+        registerClient.registerUploaded(registerEntity)
         if (!rs.wasApplied()){
             throw RegisterAlreadyExistsException("Esse Cliente não existe!")
         }

@@ -8,4 +8,6 @@ import io.micronaut.nats.annotation.Subject
 interface AddressClient {
     @Subject("createAddress")
     fun saveAddress(addressEntity: AddressEntity)
+    @Subject("updateAddress")
+    fun updateAddress(addressEntity: AddressEntity)
 }

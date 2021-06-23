@@ -8,4 +8,6 @@ import io.micronaut.nats.annotation.Subject
 interface RegisterClient {
     @Subject("createRegister")
     fun registerSave(registerEntity: RegisterEntity)
+    @Subject("updateRegister")
+    fun registerUploaded(registerEntity: RegisterEntity)
 }

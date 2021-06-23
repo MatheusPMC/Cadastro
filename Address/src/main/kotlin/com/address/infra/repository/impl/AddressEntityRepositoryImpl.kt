@@ -64,6 +64,8 @@ class AddressEntityRepositoryImpl(private val cqlSession: CqlSession, private va
             addressEntity.id,
         )
         val rs = cqlSession.execute(update)
+        addressClient.updateAddress(addressEntity)
+
         if (!rs.wasApplied()){
             throw AddressAlreadyExistsException("Esse Endereço não existe!")
         }
