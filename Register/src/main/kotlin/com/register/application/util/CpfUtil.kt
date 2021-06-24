@@ -1,6 +1,6 @@
 package com.register.application.util
 
-import com.register.application.util.handler.exception.CpfValidateException
+import com.register.application.controller.handler.cpfException.CpfValidateException
 
 
 class CpfUtil {

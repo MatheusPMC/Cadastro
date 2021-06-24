@@ -1,7 +1,8 @@
+com.register.application.controller.handler.cpfException.$CpfValidateExceptionHandlerDefinitionClass
 com.register.core.service.$RegisterServiceDefinitionClass
 com.register.infra.repository.impl.$RegisterEntityRepositoryImplDefinitionClass
 com.register.application.controller.$$RegisterControllerDefinition$InterceptedDefinitionClass
+com.register.application.controller.handler.registerException.$RegisterExceptionHandlerDefinitionClass
 com.register.infra.service.$RegisterEntityServiceDefinitionClass
-com.register.application.util.handler.$CpfValidateExceptionHandlerDefinitionClass
 com.register.application.controller.$RegisterControllerDefinitionClass
 com.register.infra.nats.$RegisterClient$InterceptedDefinitionClass

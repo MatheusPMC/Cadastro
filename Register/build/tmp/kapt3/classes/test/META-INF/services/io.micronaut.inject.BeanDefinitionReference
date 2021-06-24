@@ -1,1 +1,8 @@
+com.register.application.util.$CpfUtilTestDefinitionClass
+com.register.application.$RegisterControllerTestDefinitionClass
+com.register.infra.$RegisterEntityServiceTestDefinitionClass
+com.register.infra.$RegisterEntityRepositoryImplTestDefinitionClass
 com.register.$RegisterTestDefinitionClass
+com.register.application.util.$RegisterUtilTestDefinitionClass
+com.register.core.$RegisterServiceTestDefinitionClass
+com.register.application.$RegisterValidatorTestDefinitionClass

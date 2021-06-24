@@ -1,4 +1,4 @@
 package com.register.infra.exception
 
-class RegisterAlreadyExistsException(message : String = "Endereço já existente.") : Exception(message) {
+class RegisterAlreadyExistsException(message : String = "invalid arguments") : Exception(message) {
 }

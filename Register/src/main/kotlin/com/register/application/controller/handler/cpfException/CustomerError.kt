@@ -1,4 +1,4 @@
-package com.register.application.util.handler
+package com.register.application.controller.handler.cpfException
 
 data class CustomerError(
     val error: String = "",
