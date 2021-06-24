@@ -4,7 +4,7 @@ import io.micronaut.core.annotation.Introspected
 import java.util.*
 
 @Introspected
-data class AddressDto (
+data class AddressDto(
     val id: UUID? = null,
     val street: String = "",
     val number: Int = 0,

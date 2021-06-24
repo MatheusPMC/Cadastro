@@ -1,6 +1,5 @@
-package com.address.application.rest
+package com.address.application.controller
 
-import com.address.application.Exception.ErrorMessage
 import com.address.application.postalCode.AddressClient
 import com.address.application.postalCode.CepConverter
 import io.micronaut.http.HttpResponse
@@ -21,7 +20,6 @@ class CepController( private val addressClient: AddressClient) {
             HttpResponse.ok(HttpStatus.OK).body(CepConverter.cepDtoToAddressDto(consulta!!))
         } catch (e: Exception) {
             HttpResponse.notFound(HttpStatus.NOT_FOUND)
-                .body(ErrorMessage("O Cep: $cep nao foi encontrado!"))
         }
     }
 }
