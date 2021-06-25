@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.register.RegisterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-24T20:29:13" hostname="matheus" time="0.075">
+<testsuite name="com.register.RegisterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-25T17:52:16" hostname="matheus" time="0.11">
   <properties/>
-  <testcase name="test the server is running" classname="com.register.RegisterTest" time="0.075"/>
-  <system-out><![CDATA[?[36m17:29:13.606?[0;39m ?[1;30m[kotest-engine-0 @coroutine#30]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.context.env.DefaultEnvironment?[0;39m - Established active environments: [test]
+  <testcase name="test the server is running" classname="com.register.RegisterTest" time="0.11"/>
+  <system-out><![CDATA[?[36m14:52:16.812?[0;39m ?[1;30m[kotest-engine-0 @coroutine#43]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.context.env.DefaultEnvironment?[0;39m - Established active environments: [test]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

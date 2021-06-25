@@ -5,6 +5,7 @@ import com.address.application.dto.AddressDto
 
 class AddressUtil {
     companion object{
+        @Throws(AddressException::class)
         fun isValid(addressDto: AddressDto): AddressDto {
 
             if (addressDto.id == null) {
@@ -14,3 +15,5 @@ class AddressUtil {
         }
     }
 }
+
+

@@ -9,7 +9,7 @@ public final class RegisterDto {
     private java.util.UUID id;
     @org.jetbrains.annotations.NotNull()
     @javax.validation.constraints.Size(max = 255)
-    @javax.validation.constraints.NotEmpty(message = "Campo obrigat\u00f3rio")
+    @javax.validation.constraints.NotBlank(message = "Campo obrigat\u00f3rio")
     private final java.lang.String name = null;
     @org.jetbrains.annotations.NotNull()
     @javax.validation.constraints.Positive(message = "Campo obrigat\u00f3rio")

@@ -3,18 +3,18 @@ package com.login.infra.repository.impl
 import com.datastax.oss.driver.api.core.CqlIdentifier
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.Row
-import com.login.core.domain.Login
+import com.login.infra.entity.LoginEntity
 import com.login.infra.repository.LoginEntityRepository
 import java.util.*
 import javax.inject.Singleton
 
 @Singleton
 class LoginEntityRepositoryImpl(private val session: CqlSession) : LoginEntityRepository {
-    override fun findAddressById(id: UUID): Login? {
+    override fun findAddressById(id: UUID): LoginEntity? {
         val selectResult: Row? = session.execute(
             "SELECT name, age, cpf, email, phone, street, number, city, state, postalCode " +
                     "FROM Login WHERE id= ?", id).one()
-        val entity: Login?
+        val entity: LoginEntity?
         (if (selectResult == null) {
             return null
         } else {
@@ -29,7 +29,7 @@ class LoginEntityRepositoryImpl(private val session: CqlSession) : LoginEntityRe
             val state = selectResult.getString(CqlIdentifier.fromCql("state"))!!
             val postalCode = selectResult.getString(CqlIdentifier.fromCql("postalCode"))!!
 
-            entity = Login(id, name, age, cpf, email, phone, street, number, city, state, postalCode)
+            entity = LoginEntity(id, name, age, cpf, email, phone, street, number, city, state, postalCode)
         })
         return entity
     }

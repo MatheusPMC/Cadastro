@@ -15,8 +15,8 @@ import java.util.*
 
 @MicronautTest
 class RegisterServiceTest : AnnotationSpec() {
-    val registreRegisterServicePort = mockk<RegisterRepositoryPort>()
-    val registerService = RegisterService(registreRegisterServicePort)
+    val registreServicePort = mockk<RegisterRepositoryPort>()
+    val registerService = RegisterService(registreServicePort)
 
     lateinit var register: Register
     lateinit var registerDto: RegisterDto
@@ -34,14 +34,14 @@ class RegisterServiceTest : AnnotationSpec() {
 
     @Test
     fun `should return success on insert method`() {
-        every { registreRegisterServicePort.registerAdd(registerEntity) } answers { register }
+        every { registreServicePort.registerAdd(registerEntity) } answers { register }
         val result = registerService.createRegister(register)
         result shouldBe registerDto
     }
 
     @Test
     fun `should return success on update method`() {
-        every { registreRegisterServicePort.registerUpdate(registerEntity) } answers { register }
+        every { registreServicePort.registerUpdate(registerEntity) } answers { register }
         val result = registerService.registerUpdate(register)
         result shouldBe registerDto
     }

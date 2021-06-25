@@ -6,6 +6,6 @@ import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.client.annotation.Client
 
 @Client("https://viacep.com.br/ws")
-interface AddressClient {
+interface CepClient {
     fun consulta(@PathVariable cep: String): HttpResponse<CepDto>
 }

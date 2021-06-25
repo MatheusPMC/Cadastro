@@ -1,22 +1,12 @@
 package com.register.infra
 
-import com.datastax.oss.driver.api.core.cql.SimpleStatement
-import com.register.application.controller.handler.registerException.RegisterException
-import com.register.application.controller.handler.registerException.RegisterExceptionHandler
-import com.register.application.dto.RegisterDto
 import com.register.infra.entity.RegisterEntity
 import com.register.infra.exception.RegisterAlreadyExistsException
 import com.register.infra.nats.RegisterClient
 import com.register.infra.repository.impl.RegisterEntityRepositoryImpl
-import io.kotest.assertions.throwables.shouldNotThrowMessage
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldHave
-import io.kotest.matchers.types.shouldBeSameInstanceAs
-import io.kotest.matchers.types.shouldBeTypeOf
-import io.micronaut.http.HttpStatus
-import io.micronaut.http.server.exceptions.ExceptionHandler
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk

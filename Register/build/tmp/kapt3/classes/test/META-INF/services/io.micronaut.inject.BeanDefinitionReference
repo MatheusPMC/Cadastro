@@ -1,3 +1,4 @@
+com.register.core.$RegisterConverterTestDefinitionClass
 com.register.application.util.$CpfUtilTestDefinitionClass
 com.register.application.$RegisterControllerTestDefinitionClass
 com.register.infra.$RegisterEntityServiceTestDefinitionClass

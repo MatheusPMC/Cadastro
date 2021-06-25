@@ -7,7 +7,6 @@ import com.register.infra.repository.RegisterEntityRepository
 import com.register.infra.service.RegisterEntityService
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.shouldBeTypeOf
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk

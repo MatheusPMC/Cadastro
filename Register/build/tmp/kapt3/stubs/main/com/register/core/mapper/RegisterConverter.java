@@ -21,12 +21,6 @@ public final class RegisterConverter {
         }
         
         @org.jetbrains.annotations.NotNull()
-        public final com.register.application.dto.RegisterDto registerToRegisterDto(@org.jetbrains.annotations.NotNull()
-        com.register.core.domain.Register register) {
-            return null;
-        }
-        
-        @org.jetbrains.annotations.NotNull()
         public final com.register.infra.entity.RegisterEntity registerToRegisterEntity(@org.jetbrains.annotations.NotNull()
         com.register.core.domain.Register register) {
             return null;
@@ -35,6 +29,12 @@ public final class RegisterConverter {
         @org.jetbrains.annotations.NotNull()
         public final com.register.core.domain.Register registerEntityToRegister(@org.jetbrains.annotations.NotNull()
         com.register.infra.entity.RegisterEntity registerEntity) {
+            return null;
+        }
+        
+        @org.jetbrains.annotations.NotNull()
+        public final com.register.application.dto.RegisterDto registerToRegisterDto(@org.jetbrains.annotations.NotNull()
+        com.register.core.domain.Register register) {
             return null;
         }
         

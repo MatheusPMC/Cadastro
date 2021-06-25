@@ -11,14 +11,14 @@ class RegisterConverter {
             Register(
                 registerDto.id,registerDto.name,registerDto.age,registerDto.cpf,registerDto.email,registerDto.phone)
 
-        fun registerToRegisterDto(register: Register) =
-            RegisterDto(register.id,register.name,register.age,register.cpf,register.email,register.phone)
-
         fun registerToRegisterEntity(register: Register) =
             RegisterEntity(register.id,register.name,register.age,register.cpf,register.email,register.phone)
 
         fun registerEntityToRegister(registerEntity: RegisterEntity) =
             Register(registerEntity.id,registerEntity.name,registerEntity.age,registerEntity.cpf,registerEntity.email,
                 registerEntity.phone)
+
+        fun registerToRegisterDto(register: Register) =
+            RegisterDto(register.id,register.name,register.age,register.cpf,register.email,register.phone)
     }
 }
