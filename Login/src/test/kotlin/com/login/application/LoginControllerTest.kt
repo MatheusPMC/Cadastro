@@ -22,21 +22,21 @@ class LoginControllerTest : AnnotationSpec() {
 
     @BeforeEach
     fun setUp() {
-        loginDto = LoginDto(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
-        "408.933.688-06", "mtixti@gmail.com", "17-991322179","valentim silva", 230,
-        "Terra Roxa", "SP", "14745-000")
+        loginDto = LoginDto(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),"Matheus", 30,
+            "175.688.450-10", "test@test.com", "1799883322","sao vicente",222,
+            "Terra Roxa", "SP","14745-000")
 
-        login = Login(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
-            "408.933.688-06", "mtixti@gmail.com", "17-991322179","valentim silva", 230,
-            "Terra Roxa", "SP", "14745-000")
+        login = Login(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),"Matheus", 30,
+            "175.688.450-10", "test@test.com", "1799883322","sao vicente",222,
+            "Terra Roxa", "SP","14745-000")
     }
 
     @Test
     fun `create registration successfully`() {
         val id = UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2")
-        every { loginService.findById(id) } returns login
+        every { loginService.findById(id) } returns loginDto
         val result = loginController.getId(id)
         result.status shouldBe HttpStatus.OK
-        result.body() shouldBe login
+        result.body() shouldBe loginDto
     }
 }

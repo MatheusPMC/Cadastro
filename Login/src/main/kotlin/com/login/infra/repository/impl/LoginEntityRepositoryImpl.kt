@@ -4,6 +4,7 @@ import com.datastax.oss.driver.api.core.CqlIdentifier
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.Row
 import com.login.infra.entity.LoginEntity
+import com.login.infra.exception.LoginException
 import com.login.infra.repository.LoginEntityRepository
 import java.util.*
 import javax.inject.Singleton
@@ -16,7 +17,7 @@ class LoginEntityRepositoryImpl(private val session: CqlSession) : LoginEntityRe
                     "FROM Login WHERE id= ?", id).one()
         val entity: LoginEntity?
         (if (selectResult == null) {
-            return null
+            throw LoginException()
         } else {
             val name = selectResult.getString(CqlIdentifier.fromCql("name"))!!
             val age = selectResult.getInt(CqlIdentifier.fromCql("age"))

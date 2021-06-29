@@ -6,3 +6,4 @@ com.register.application.controller.handler.registerException.$RegisterException
 com.register.infra.service.$RegisterEntityServiceDefinitionClass
 com.register.application.controller.$RegisterControllerDefinitionClass
 com.register.infra.nats.$RegisterClient$InterceptedDefinitionClass
+com.register.infra.exception.$RegisterExceptionImplHandlerDefinitionClass

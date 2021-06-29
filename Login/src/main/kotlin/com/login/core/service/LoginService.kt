@@ -1,7 +1,6 @@
 package com.login.core.service
 
 import com.login.application.dto.LoginDto
-import com.login.core.domain.Login
 import com.login.core.mapper.LoginConverter
 import com.login.core.port.LoginRepositoryPort
 import com.login.core.port.LoginServicePort

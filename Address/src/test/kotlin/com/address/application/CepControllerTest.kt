@@ -26,21 +26,18 @@ class CepControllerTest: AnnotationSpec() {
     @BeforeEach
     fun setUp() {
         cepDto =
-            CepDto("Valentim Silva","Terra Roxa","SP","14745-000")
+            CepDto("sao vicente","Terra Roxa","SP","14745-000")
         addressDto =
-            AddressDto(null,"Valentim Silva",0,"Terra Roxa","SP", "14745-000")
+            AddressDto(null,"sao vicente",0,"Terra Roxa","SP", "14745-000")
 
     }
-/*
+
     @Test
-    fun `create registration successfully`() {
+    fun `create registration state successfully`() {
         var cep = "14745000"
         every { cepClient.consulta(cep) } returns HttpResponse.ok()
-        val consulta = cepClient.consulta(cep).body()
-        val result = cepController.getCep("14745-000").body()
+        val result = cepClient.consulta(cep).status()
         result shouldBe HttpStatus.OK
     }
-
- */
 
 }

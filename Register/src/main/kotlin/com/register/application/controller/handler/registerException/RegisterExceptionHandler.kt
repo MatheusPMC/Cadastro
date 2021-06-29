@@ -18,7 +18,7 @@ class RegisterExceptionHandler : ExceptionHandler<RegisterException?, HttpRespon
     val LOG: Logger = LoggerFactory.getLogger(RegisterExceptionHandler::class.java)
     override fun handle(request: HttpRequest<*>?, exception: RegisterException?): HttpResponse<*> {
         val registerError = RegisterError(
-            HttpStatus.BAD_REQUEST.toString(), 400, "invalid arguments"
+            HttpStatus.BAD_REQUEST.toString(), 400, "Este id é invalido!"
         )
         LOG.error("Register Exception")
         return HttpResponse.badRequest(registerError)

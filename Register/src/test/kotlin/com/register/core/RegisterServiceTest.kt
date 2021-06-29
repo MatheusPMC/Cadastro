@@ -22,14 +22,17 @@ class RegisterServiceTest : AnnotationSpec() {
     lateinit var registerDto: RegisterDto
     lateinit var registerEntity: RegisterEntity
 
-    @AnnotationSpec.BeforeEach
+    @BeforeEach
     fun setUp() {
         registerDto =
-            RegisterDto(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
+            RegisterDto(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
+                "175.688.450-10", "test@test.com", "1799883322")
         register =
-            Register(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
+            Register(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
+                "175.688.450-10", "test@test.com", "1799883322")
         registerEntity =
-            RegisterEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
+            RegisterEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
+                "175.688.450-10", "test@test.com", "1799883322")
     }
 
     @Test

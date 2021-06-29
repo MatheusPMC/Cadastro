@@ -19,7 +19,7 @@ class AddressExceptionHandler : ExceptionHandler<AddressException?, HttpResponse
     val LOG: Logger = LoggerFactory.getLogger(AddressExceptionHandler::class.java)
     override fun handle(request: HttpRequest<*>?, exception: AddressException?): HttpResponse<*> {
         val addressError = AddressError(
-            HttpStatus.BAD_REQUEST.toString(), 400, "invalid arguments"
+            HttpStatus.BAD_REQUEST.toString(), 400, "Argumentos invalidos!"
         )
         LOG.error("Address Exception")
         return HttpResponse.badRequest(addressError)

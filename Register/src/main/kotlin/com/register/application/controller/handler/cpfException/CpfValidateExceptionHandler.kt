@@ -1,6 +1,5 @@
 package com.register.application.controller.handler.cpfException
 
-import com.register.application.controller.handler.registerException.RegisterExceptionHandler
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
@@ -16,7 +15,7 @@ import javax.inject.Singleton
 @Requires(classes = [CpfValidateException::class, ExceptionHandler::class])
 class CpfValidateExceptionHandler: ExceptionHandler<CpfValidateException?, HttpResponse<*>> {
 
-    val LOG: Logger = LoggerFactory.getLogger(RegisterExceptionHandler::class.java)
+    val LOG: Logger = LoggerFactory.getLogger(CpfValidateExceptionHandler::class.java)
 
     override fun handle(request: HttpRequest<*>?, exception: CpfValidateException?): HttpResponse<*> {
         val customerError = CustomerError(

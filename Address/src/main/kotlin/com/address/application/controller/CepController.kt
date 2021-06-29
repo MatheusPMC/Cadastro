@@ -1,5 +1,6 @@
 package com.address.application.controller
 
+import com.address.application.controller.handler.AddressException
 import com.address.application.postalCode.CepClient
 import com.address.application.postalCode.CepConverter
 import io.micronaut.http.HttpResponse
@@ -18,7 +19,7 @@ class CepController( private val cepClient: CepClient) {
         return  try {
             val consulta = cepClient.consulta(cep).body()
             HttpResponse.ok(HttpStatus.OK).body(CepConverter.cepDtoToAddressDto(consulta!!))
-        } catch (e: Exception) {
+        } catch (e: AddressException) {
             HttpResponse.notFound(HttpStatus.NOT_FOUND)
         }
     }

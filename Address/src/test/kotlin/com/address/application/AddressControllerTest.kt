@@ -26,12 +26,12 @@ class AddressControllerTest : AnnotationSpec() {
         addressDto =
             AddressDto(
                 UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),
-                "Valentim Silva", 231, "Terra Roxa", "SP", "14745-000"
+                "sao vicente", 231, "Terra Roxa", "SP", "14745-000"
             )
         address =
             Address(
                 UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),
-                "Valentim Silva", 231, "Terra Roxa", "SP", "14745-000"
+                "sao vicente", 231, "Terra Roxa", "SP", "14745-000"
             )
     }
 

@@ -28,9 +28,10 @@ class RegisterController(private val registerService: RegisterServicePort) {
     fun update(@PathVariable cpf: String, @Body @Valid registerDto: RegisterDto): HttpResponse<Any> {
             RegisterUtil.isValid(registerDto)
             CpfUtil.validateCPF(cpf)
-            val registerDto = RegisterDto(registerDto.id, registerDto.name, registerDto.age, cpf, registerDto.phone)
+            val result = RegisterDto(registerDto.id, registerDto.name, registerDto.age, cpf, registerDto.email,
+                registerDto.phone)
         return HttpResponse.ok(HttpStatus.OK)
-                .body(registerService.registerUpdate(RegisterConverter.registerDtoToRegister(registerDto)))
+                .body(registerService.registerUpdate(RegisterConverter.registerDtoToRegister(result)))
     }
 }
 

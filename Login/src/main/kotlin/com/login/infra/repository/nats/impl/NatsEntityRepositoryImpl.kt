@@ -4,7 +4,7 @@ import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.BoundStatement
 import com.datastax.oss.driver.api.core.cql.PreparedStatement
 import com.login.infra.entity.LoginEntity
-import com.login.infra.exception.LoginAlreadyExistsException
+import com.login.infra.exception.LoginException
 import com.login.infra.repository.nats.NatsEntityRepository
 import javax.inject.Singleton
 
@@ -21,7 +21,7 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
         val result = session.execute(insert)
 
         if (!result.wasApplied()) {
-            throw LoginAlreadyExistsException("Cliente já registrado!")
+            throw LoginException()
         }
     }
 
@@ -39,7 +39,7 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
         )
         val rs = session.execute(update)
         if (!rs.wasApplied()){
-            throw LoginAlreadyExistsException("Esse Cliente não existe!")
+            throw LoginException()
         }
 
     }
@@ -53,7 +53,7 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
         val result = session.execute(insert)
 
         if (!result.wasApplied()) {
-            throw LoginAlreadyExistsException("Cliente já registrado!")
+            throw LoginException()
         }
     }
 
@@ -73,7 +73,7 @@ class NatsEntityRepositoryImpl(private val session: CqlSession) : NatsEntityRepo
         val rs = session.execute(update)
 
         if (!rs.wasApplied()){
-            throw LoginAlreadyExistsException("Esse Endereço não existe!")
+            throw LoginException()
         }
     }
 }

@@ -22,9 +22,9 @@ class CepConverterTest : AnnotationSpec() {
     @BeforeEach
     fun setUp() {
         cepDto =
-            CepDto("Valentim Silva","Terra Roxa","SP","14745-000")
+            CepDto("sao vicente","Terra Roxa","SP","14745-000")
         addressDto =
-            AddressDto(null,"Valentim Silva",0,"Terra Roxa","SP", "14745-000")
+            AddressDto(null,"sao vicente",0,"Terra Roxa","SP", "14745-000")
     }
 
     @Test

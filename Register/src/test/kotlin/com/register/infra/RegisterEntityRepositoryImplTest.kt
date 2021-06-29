@@ -1,7 +1,8 @@
 package com.register.infra
 
+import com.register.application.controller.handler.registerException.RegisterException
 import com.register.infra.entity.RegisterEntity
-import com.register.infra.exception.RegisterAlreadyExistsException
+import com.register.infra.exception.RegisterExceptionImpl
 import com.register.infra.nats.RegisterClient
 import com.register.infra.repository.impl.RegisterEntityRepositoryImpl
 import io.kotest.assertions.throwables.shouldThrow
@@ -23,7 +24,8 @@ class RegisterEntityRepositoryImplTest : AnnotationSpec() {
     @BeforeEach
     fun setUp() {
         registerEntity =
-            RegisterEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
+            RegisterEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"), "Matheus", 30,
+                "175.688.450-10", "test@test.com", "1799883322")
     }
 
     @Test
@@ -42,24 +44,21 @@ class RegisterEntityRepositoryImplTest : AnnotationSpec() {
 
     @Test
     fun `should return failed on update method`() {
-        var registerEntityTest = RegisterEntity(null, "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
-        every { registerClient.registerUploaded(registerEntityTest) } throws RegisterAlreadyExistsException()
-
-        val result = shouldThrow<RegisterAlreadyExistsException> {
+        var registerEntityTest = RegisterEntity(null, "Matheus", 30, "",
+            "test@test.com", "1799883322")
+        every { registerClient.registerUploaded(registerEntityTest) } throws RegisterExceptionImpl()
+        shouldThrow<RegisterExceptionImpl> {
             registerEntityRepositoryImpl.registerUploaded(registerEntityTest)
         }
-        result.message shouldBe "invalid arguments"
     }
 
     @Test
     fun `should return failed on insert method`() {
-        var registerEntityTest = RegisterEntity(null, "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
-        every { registerClient.registerSave(registerEntityTest) } throws RegisterAlreadyExistsException()
-
-        val result = shouldThrow<RegisterAlreadyExistsException> {
+        var registerEntityTest = RegisterEntity(null, "Matheus", 30, "",
+            "test@test.com", "1799883322")
+        every { registerClient.registerSave(registerEntityTest) } throws RegisterExceptionImpl()
+        shouldThrow<RegisterExceptionImpl> {
             registerEntityRepositoryImpl.registerSave(registerEntityTest)
         }
-
-        result.message shouldBe "invalid arguments"
     }
 }

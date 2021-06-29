@@ -1,7 +1,7 @@
 package com.address.infra
 
 import com.address.infra.entity.AddressEntity
-import com.address.infra.exception.AddressAlreadyExistsException
+import com.address.infra.exception.AddressExceptionInfra
 import com.address.infra.nats.AddressClient
 import com.address.infra.repository.impl.AddressEntityRepositoryImpl
 import io.kotest.assertions.throwables.shouldThrow
@@ -22,7 +22,8 @@ class AddressEntityRepositoryImplTest : AnnotationSpec() {
     @BeforeEach
     fun setUp() {
         addressEntity =
-            AddressEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),"Valentim Silva",231,"Terra Roxa","SP", "14745-000")
+            AddressEntity(UUID.fromString("970305d4-fcda-48f6-b7c1-6d16be7cd4e2"),"sao vicente",
+                231,"Terra Roxa","SP", "14745-000")
     }
 
     @Test
@@ -41,21 +42,19 @@ class AddressEntityRepositoryImplTest : AnnotationSpec() {
 
     @Test
     fun `should return failed on update method`() {
-        var registerEntityTest = AddressEntity(null, "Valentim Silva",231,"Terra Roxa","SP", "14745-000")
-        every { addressClient.addressUpdate(registerEntityTest) } throws AddressAlreadyExistsException()
-        val result = shouldThrow<AddressAlreadyExistsException> {
+        var registerEntityTest = AddressEntity(null, "sao vicente",231,"Terra Roxa","SP", "14745-000")
+        every { addressClient.addressUpdate(registerEntityTest) } throws AddressExceptionInfra()
+        shouldThrow<AddressExceptionInfra> {
             addressEntityRepositoryImpl.addressUploaded(registerEntityTest)
         }
-        result.message shouldBe "invalid arguments"
     }
 
     @Test
     fun `should return failed on insert method`() {
-        var registerEntityTest = AddressEntity(null, "Valentim Silva",231,"Terra Roxa","SP", "14745-000")
-        every { addressClient.addressSave(registerEntityTest) } throws AddressAlreadyExistsException()
-        val result = shouldThrow<AddressAlreadyExistsException> {
+        var registerEntityTest = AddressEntity(null, "sao vicente",231,"Terra Roxa","SP", "14745-000")
+        every { addressClient.addressSave(registerEntityTest) } throws AddressExceptionInfra()
+        shouldThrow<AddressExceptionInfra> {
             addressEntityRepositoryImpl.addressSave(registerEntityTest)
         }
-        result.message shouldBe "invalid arguments"
     }
 }

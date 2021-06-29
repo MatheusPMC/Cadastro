@@ -13,35 +13,40 @@ class RegisterValidatorTest : AnnotationSpec() {
 
     @Test
     fun `must not accept the empty name`() {
-        val registerDto = RegisterDto(UUID.randomUUID(), "", 30, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
-        val constraintViolations = validator.validate(registerDto)
-        constraintViolations.size shouldBe 1
-    }
-
-    @Test
-    fun `must not accept the empty, negative age`() {
-        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 0, "408.933.688-06", "mtixti@gmail.com", "17-991322179")
-        val constraintViolations = validator.validate(registerDto)
-        constraintViolations.size shouldBe 1
-    }
-
-    @Test
-    fun `must not accept the empty cpf`() {
-        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "", "mtixti@gmail.com", "17-991322179")
-        val constraintViolations = validator.validate(registerDto)
-        constraintViolations.size shouldBe 1
-    }
-
-    @Test
-    fun `must not accept empty email or invalid format`() {
-        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "408.933.688-06", "", "17-991322179")
+        val registerDto = RegisterDto(UUID.randomUUID(), "", 30, "175.688.450-10",
+            "test@test.com", "1799883322")
         val constraintViolations = validator.validate(registerDto)
         constraintViolations.size shouldBe 2
     }
 
     @Test
+    fun `must not accept the empty, negative age`() {
+        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 0, "175.688.450-10",
+            "test@test.com", "1799883322")
+        val constraintViolations = validator.validate(registerDto)
+        constraintViolations.size shouldBe 2
+    }
+
+    @Test
+    fun `must not accept the empty cpf`() {
+        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "",
+            "test@test.com", "1799883322")
+        val constraintViolations = validator.validate(registerDto)
+        constraintViolations.size shouldBe 2
+    }
+
+    @Test
+    fun `must not accept empty email or invalid format`() {
+        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "175.688.450-10",
+            "", "1799883322")
+        val constraintViolations = validator.validate(registerDto)
+        constraintViolations.size shouldBe 3
+    }
+
+    @Test
     fun `must not accept empty phone or invalid format`() {
-        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "408.933.688-06", "mtixti@gmail.com", "")
+        val registerDto = RegisterDto(UUID.randomUUID(), "Matheus", 30, "175.688.450-10",
+            "test@test.com", "")
         val constraintViolations = validator.validate(registerDto)
         constraintViolations.size shouldBe 2
     }
