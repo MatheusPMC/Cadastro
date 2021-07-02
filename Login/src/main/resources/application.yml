@@ -6,6 +6,7 @@ micronaut:
 endpoints:
   health:
     enabled: true
+---
 cassandra:
   default:
     basic:
@@ -14,6 +15,7 @@ cassandra:
       session-keyspace: login
       load-balancing-policy:
         local-datacenter: datacenter1
+---
 nats:
   addresses:
     - "nats://localhost:4222"

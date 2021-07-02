@@ -11,16 +11,16 @@ class LoginConverter {
         fun loginEntityToLogin(loginEntity: LoginEntity) =
             Login(
                 loginEntity.id,
-                loginEntity.name,
+                loginEntity.name!!,
                 loginEntity.age,
-                loginEntity.cpf,
-                loginEntity.email,
-                loginEntity.phone,
-                loginEntity.street,
-                loginEntity.number,
-                loginEntity.city,
-                loginEntity.state,
-                loginEntity.postalCode
+                loginEntity.cpf!!,
+                loginEntity.email!!,
+                loginEntity.phone!!,
+                loginEntity.street!!,
+                loginEntity.number!!,
+                loginEntity.city!!,
+                loginEntity.state!!,
+                loginEntity.postalCode!!
             )
 
 

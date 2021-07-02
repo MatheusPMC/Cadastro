@@ -16,3 +16,9 @@ state VARCHAR,
 postalCode VARCHAR,
 PRIMARY KEY (id)
 );
+
+CREATE TABLE Login(
+name VARCHAR,
+password VARCHAR,
+PRIMARY KEY (name)
+);

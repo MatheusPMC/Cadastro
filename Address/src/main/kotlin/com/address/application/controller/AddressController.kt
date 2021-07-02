@@ -24,9 +24,9 @@ class AddressController(private val addressServicePort: AddressServicePort) {
 
     @Put("/{id}")
     fun update(@PathVariable id: UUID, @Body @Valid addressDto: AddressDto): HttpResponse<Any> {
-        AddressUtil.isValid(addressDto)
         val addressDto = AddressDto(
             id, addressDto.street, addressDto.number, addressDto.city, addressDto.state, addressDto.postalCode)
+        AddressUtil.isValid(addressDto)
         return HttpResponse.ok(HttpStatus.OK)
             .body(addressServicePort.addressUpdate(AddressConverter.addressDtoToAddress(addressDto)))
     }

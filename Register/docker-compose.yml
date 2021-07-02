@@ -1,16 +1,22 @@
-version: '3'
+version: "3.9"
 
 services:
-  some-scylla:
-    image: scylladb/scylla
-    container_name: some-scylla
 
-  some-scylla2:
-    image: scylladb/scylla
-    container_name: some-scylla2
-    command: --seeds=some-scylla
+  iupp-nats-streaming:
+    image: nats-streaming
+    container_name: nats-streaming
+    ports:
+      - "14222:4222"
+      - "18222:8222"
+      - "16222:6222"
+    command:
+      - "--cluster_id=math-nats-streaming"
+      - "--user=math-user"
+      - "--pass=math-pass"
+      - "-store=file"
+      - "-dir=datastore"
+    volumes:
+      - nats:/datastore
 
-  some-scylla3:
-    image: scylladb/scylla
-    container_name: some-scylla3
-    command: --seeds=some-scylla
+volumes:
+  nats:

@@ -4,8 +4,8 @@
     <annotationProcessing>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
-        <option name="micronaut.processing.annotations" value="com.register.*" />
-        <option name="micronaut.processing.group" value="com.register" />
+        <option name="micronaut.processing.annotations" value="com.example.*" />
+        <option name="micronaut.processing.group" value="com.example" />
         <option name="micronaut.processing.incremental" value="true" />
         <option name="micronaut.processing.module" value="Register" />
         <processorPath useClasspath="false">
